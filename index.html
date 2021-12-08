@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <h2>Task_2</h2>
+
+    <hr>
+
+    <p>Twoim zadaniem jest napisać własną bibliotekę książek z wykorzystaniem HTML, CSS oraz JavaScript, w której
+        znajdzie się formularz przyjmujący następujące pola:</p>
+    <ul>
+        <Li>Tytuł książki (co najmniej 1 znak).</Li>
+        <li>Autor książki (co najmniej 3 znaki).</li>
+        <li>Priorytet przeczytania (liczby od 1 do 5).</li>
+        <li>Listę z kategoriami (3 kategorie do wyboru).</li>
+        <li>Przycisk umożliwiający wysyłanie.</li>
+    </ul>
+
+    <p>Po wysłaniu formularza strona nie może się przeładować. Jednocześnie wyświetl nowo dodaną książkę w tabeli i
+        wyczyść formularz.</p>
+
+    <p>Kryteria akceptacji:</p>
+    <ul>
+        <li>Walidacja dla pól formularza. W przypadku kiedy jakieś pole nie przechodzi walidacji, książka nie możezostać
+            dodana.</li>
+        <li>Użytkownik ma możliwość dodania kolejnej książki do tabeli.</li>
+        <li>Cała tabela zapisuje się w localstorage (przy ponownym otworzeniu przeglądarki zostaje załadowana ponownie i
+            wyświetlona z takim samym stanem jak była przy zamknięciu).</li>
+    </ul>
+
+    <hr>
+
+
+    <form name="bookTable">
+        <div class="form-group">
+            <label for="bookName">Book name:</label>
+            <input type="text" name="bookName">
+            <span class="error" id="bookNameError">Enter at least 1 character</span>
+        </div>
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" name="author">
+            <span class="error" id="authorError">Enter at least 3 character</span>
+        </div>
+        <div class="form-group-list">
+            <label for="priority">Reading priority:</label>
+            <label><input type="radio" name="priority" value="1" checked required> 1</label>
+            <label><input type="radio" name="priority" value="2"> 2</label>
+            <label><input type="radio" name="priority" value="3"> 3</label>
+            <label><input type="radio" name="priority" value="4"> 4</label>
+            <label><input type="radio" name="priority" value="5"> 5</label>
+        </div>
+        <div class="form-group-list">
+            <label for="genre">Book genre:</label>
+            <select name="genre" required>
+                <option value="Thriller">Thriller</option>
+                <option value="Horror">Horror</option>
+                <option value="Historical">Historical</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="add">Add book</button>
+
+        </div>
+    </form>
+
+    <table id="bookTable" hidden>
+        <tr>
+            <th>Author</th>
+            <th>Book Name</th>
+            <th>Reading priority</th>
+            <th>Genre</th>
+        </tr>
+    </table>
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
